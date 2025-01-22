@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="prueba.css" rel="stylesheet" />
+    <link rel="icon" type="image/jpg" href="extras/favicon.png" />
+    <title>Batería</title>
+</head>
+
+<body>
+    <div class="preparacion">
+        <div>
+            <h1>INICIAR</h1>
+            <p>
+                CLICK CON EL RATÓN EN LAS PARTES DE LA BATERÍA O UTILIZA LAS TECLAS
+                DE TU TECLADO PARA EMITIR DIFERENTES SONIDOS
+            </p>
+            <button id="comenzar" class="comenzar">LET'S GO!</button>
+            <audio>
+                <source src="Sonidos/redoble.wav" type="audio/wav" />
+            </audio>
+        </div>
+    </div>
+
+    <header>
+        <h1>Drump</h1>
+    </header>
+    <main>
+        <section class="button-contaniner">
+            <img src="bateria.png" alt="Batería" id="bateria" />
+            <button class="melody-button" id="crash" src="Sonidos/crash.wav"></button>
+            <button class="melody-button" id="close" src="Sonidos/hihat-close.wav"></button>
+            <button class="melody-button" id="open" src="Sonidos/hihat-open.wav"></button>
+            <button class="melody-button" id="kick" src="Sonidos/kick.wav"></button>
+            <button class="melody-button" id="ride" src="Sonidos/ride.wav"></button>
+            <button class="melody-button" id="snare" src="Sonidos/snare.wav"></button>
+            <button class="melody-button" id="tom-high" src="Sonidos/tom-high.wav"></button>
+            <button class="melody-button" id="tom-low" src="Sonidos/tom-low.wav"></button>
+            <button class="melody-button" id="tom-mid" src="Sonidos/tom-mid.wav"></button>
+            <button class="key-button" id="teclado">USAR TECLADO</button>
+            <div class="tecla ocultar" id="crashQ">Q</div>
+            <div class="tecla ocultar" id="openE">E</div>
+            <div class="tecla ocultar" id="closeW">W</div>
+            <div class="tecla ocultar" id="snareU">U</div>
+            <div class="tecla ocultar" id="tom-highI">I</div>
+            <div class="tecla ocultar" id="kickR">R</div>
+            <div class="tecla ocultar" id="tom-lowO">O</div>
+            <div class="tecla ocultar" id="tom-midP">P</div>
+            <div class="tecla ocultar" id="rideT">T</div>
+        </section>
+    </main>
+    <footer>
+        <p>
+            Patricio, Nico y Victor
+        </p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
