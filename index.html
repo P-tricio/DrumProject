@@ -1,61 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="style.css" rel="stylesheet" />
-    <link rel="icon" type="image/jpg" href="extras/favicon.png" />
-    <title>Batería</title>
+    <title>DRUM</title>
 </head>
 
 <body>
-    <div class="preparacion">
-        <div>
-            <h1>INICIAR</h1>
-            <p>
-                CON EL RATÓN ClICKA EN LAS PARTES DE LA BATERÍA O
-                UTILIZA LAS TECLAS DE TU TECLADO PARA HACER LOS DIFERENTES SONIDOS
-            </p>
-            <button id="comenzar" class="comenzar">¡Vamos!</button>
-            <audio>
-                <source src="sounds/.wav" type="audio/wav" />
-            </audio>
-        </div>
-    </div>
-
     <header>
-        <h1>Drum Pad</h1>
+        <h1>DRUM</h1>
     </header>
     <main>
-        <section class="button-contaniner">
-            <img src="drum-set.png" alt="drum-set" id="drum-set" />
-            <button class="melody-button" id="crash" src="sounds/crash.wav"></button>
-            <button class="melody-button" id="close" src="sounds/hihat-close.wav"></button>
-            <button class="melody-button" id="open" src="sounds/hihat-open.wav"></button>
-            <button class="melody-button" id="kick" src="sounds/kick.wav"></button>
-            <button class="melody-button" id="ride" src="sounds/ride.wav"></button>
-            <button class="melody-button" id="snare" src="sounds/snare.wav"></button>
-            <button class="melody-button" id="tom-high" src="sounds/tom-high.wav"></button>
-            <button class="melody-button" id="tom-low" src="sounds/tom-low.wav"></button>
-            <button class="melody-button" id="tom-mid" src="sounds/tom-mid.wav"></button>
-            <button class="key-button" id="teclado">USAR TECLADO</button>
-            <div class="tecla ocultar" id="crash">Q</div>
-            <div class="tecla ocultar" id="open">E</div>
-            <div class="tecla ocultar" id="close">W</div>
-            <div class="tecla ocultar" id="snare">U</div>
-            <div class="tecla ocultar" id="tom-high">I</div>
-            <div class="tecla ocultar" id="kick">R</div>
-            <div class="tecla ocultar" id="tom-low">O</div>
-            <div class="tecla ocultar" id="tom-mid">P</div>
-            <div class="tecla ocultar" id="ride">T</div>
-        </section>
+        <div id="drum-kit">
+            
+            <img src="images/drum-set.png" alt="drum-set" id="drum-image">
+
+            <div class="button" id="q" data-sound="crash">Q<div>
+                    <div class="button" id="w" data-sound="hittat-Close">W</div>
+                    <div class="button" id="e" data-sound="hittat-Open">E</div>
+                    <div class="button" id="q" data-sound="kick">A</div>
+                    <div class="button" id="q" data-sound="ride">S</div>
+                    <div class="button" id="q" data-sound="snare">D</div>
+                    <div class="button" id="q" data-sound="tomHigh">Z</div>
+                    <div class="button" id="q" data-sound="tomMid">X</div>
+                    <div class="button" id="q" data-sound="tomLow">C</div>
+                </div>
+
+                <div id="record-controls">
+                    <button id="record-button">
+                        <svg 
+                        xmlns="" 
+                        height="" 
+                        viewBox="" 
+                        width="" 
+                        fill="">
+                            
+                        <path d="" 
+                        />
+
+                        </svg>
+
+                    </button>
+
+                    <button id="play-recording">
+
+                        <svg 
+                        xmlns="" 
+                        height="" 
+                        viewBox="" 
+                        width="" 
+                        fill="">
+                            
+                        <path d="" 
+                        />
+                        </svg>
+                    </button>
+                </div>
     </main>
-    <footer>
-        <p>
-            Patricio, Nico y Victor
-        </p>
-    </footer>
 
     <script src="script.js"></script>
 </body>
