@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="darkmode.js" defer></script>
+    <title>BATERÍA</title>
+  </head>
+  <body>
+    <header>
+      <h1>BATERÍA</h1>
+      <button class="cambiarModo" id="cambiarModo">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="24px"
+          viewBox="0 -960 960 960"
+          width="24px"
+          fill="#5f6368"
+        >
+          <path
+            d="M480-120q-150 0-255-105T120-480q0-150 105-255t255-105q14 0 27.5 1t26.5 3q-41 29-65.5 75.5T444-660q0 90 63 153t153 63q55 0 101-24.5t75-65.5q2 13 3 26.5t1 27.5q0 150-105 255T480-120Z"
+          />
+        </svg>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="24px"
+          viewBox="0 -960 960 960"
+          width="24px"
+          fill="#5f6368"
+        >
+          <path
+            d="M480-280q-83 0-141.5-58.5T280-480q0-83 58.5-141.5T480-680q83 0 141.5 58.5T680-480q0 83-58.5 141.5T480-280ZM200-440H40v-80h160v80Zm720 0H760v-80h160v80ZM440-760v-160h80v160h-80Zm0 720v-160h80v160h-80ZM256-650l-101-97 57-59 96 100-52 56Zm492 496-97-101 53-55 101 97-57 59Zm-98-550 97-101 59 57-100 96-56-52ZM154-212l101-97 55 53-97 101-59-57Z"
+          />
+        </svg>
+      </button>
+    </header>
+    <main>
+      <div id="drum-kit">
+        <img src="images/drum-set.png" alt="Drum Set" id="drum-image" />
+        <!-- Botones invisibles superpuestos -->
+        <div class="button" id="q" data-sound="crash">Q</div>
+        <div class="button" id="w" data-sound="hihat-Close">W</div>
+        <div class="button" id="e" data-sound="hihat-Open">E</div>
+        <div class="button" id="a" data-sound="kick">A</div>
+        <div class="button" id="s" data-sound="ride">S</div>
+        <div class="button" id="d" data-sound="snare">D</div>
+        <div class="button" id="z" data-sound="tom-High">Z</div>
+        <div class="button" id="x" data-sound="tom-Mid">X</div>
+        <div class="button" id="c" data-sound="tom-Low">C</div>
+      </div>
+
+      <div id="record-controls">
+        <button id="record-button">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 -960 960 960"
+            width="24px"
+            fill="#EA3323"
+          >
+            <path
+              d="M480-280q83 0 141.5-58.5T680-480q0-83-58.5-141.5T480-680q-83 0-141.5 58.5T280-480q0 83 58.5 141.5T480-280Zm0 200q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"
+            />
+          </svg>
+        </button>
+        <button id="play-recording" disabled>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 -960 960 960"
+            width="24px"
+            fill="#75FB4C"
+          >
+            <path
+              d="m380-300 280-180-280-180v360ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Z"
+            />
+          </svg>
+        </button>
+      </div>
+      <div id="instructions" class="instructions-below">
+        <p>
+          Haz clic en cada parte de la batería para tocarla, o utiliza las
+          teclas del teclado para hacer música.
+        </p>
+        <!-- Botón para abrir las instrucciones -->
+        <button id="open-instructions">Instrucciones de teclado</button>
+      </div>
+      <!-- Modal para mostrar las instrucciones -->
+      <div id="instructions-modal" class="modal">
+        <div class="modal-content">
+          <span class="close-button" id="close-instructions">&times;</span>
+          <h2>TECLAS:</h2>
+          <ul>
+            <li>Pulsa Q para tocar los platos.</li>
+            <li>Pulsa W para tocar el hi-hat cerrado.</li>
+            <li>Pulsa E para tocar el hi-hat abierto.</li>
+            <li>Pulsa A para tocar el bombo.</li>
+            <li>Pulsa S para tocar el ride.</li>
+            <li>Pulsa D para tocar la caja.</li>
+            <li>Pulsa Z para tocar el tom alto.</li>
+            <li>Pulsa X para tocar el tom medio.</li>
+            <li>Pulsa C para tocar el tom bajo.</li>
+          </ul>
+        </div>
+      </div>
+    </main>
+    <script src="script.js"></script>
+  </body>
+  <footer>
+    <p>
+      © Proyecto creado por Patricio Escalona, Nicolás Fernández y Victor Jatoba
+    </p>
+  </footer>
+</html>
