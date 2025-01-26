@@ -27,6 +27,10 @@ function playSound(button, sound) {
   sound.play();
   button.classList.add("active"); // Agregar clase activa
   setTimeout(() => button.classList.remove("active"), 100); // Quitar clase activa después de 100ms
+  if (isRecording) {
+    const time = Date.now() - recordingStartTime;
+    recording.push({ button: button, time });
+  }
 }
 
 // Botones asociados a los sonidos con el clic
@@ -70,5 +74,66 @@ document.addEventListener("keydown", (event) => {
     case "c":
       playSound(cButton, tomLow);
       break;
+  }
+});
+
+let isRecording = false; // Estado de la grabación
+let recording = []; // Almacena la grabación
+let recordingStartTime = null;
+
+// Botones
+const recordButton = document.querySelector("#record-button");
+const playRecordingButton = document.querySelector("#play-recording");
+
+// Función para empezar o detener la grabación
+recordButton.addEventListener("click", () => {
+  if (!isRecording) {
+    // Iniciar grabación
+    recording = [];
+    recordingStartTime = Date.now();
+    isRecording = true;
+    // recordButton.textContent = "Grabando...";
+    recordButton.classList.add("recording");
+    playRecordingButton.disabled = true; // Deshabilitar botón de reproducción durante la grabación
+  } else {
+    // Detener grabación
+    isRecording = false;
+    // recordButton.textContent = "Grabar";
+    recordButton.classList.remove("recording");
+    playRecordingButton.disabled = recording.length === 0; // Activar reproducción si hay datos
+  }
+});
+
+// Función para reproducir la grabación
+playRecordingButton.addEventListener("click", () => {
+  if (recording.length > 0) {
+    recording.forEach(({ button, time }) => {
+      setTimeout(() => {
+        const sound = new Audio(`sounds/${button.dataset.sound}.wav`);
+        playSound(button, sound);
+      }, time);
+    });
+  }
+});
+
+// Elementos del DOM
+const openButton = document.getElementById("open-instructions");
+const closeButton = document.getElementById("close-instructions");
+const modal = document.getElementById("instructions-modal");
+
+// Abrir el modal
+openButton.addEventListener("click", () => {
+  modal.style.display = "flex";
+});
+
+// Cerrar el modal
+closeButton.addEventListener("click", () => {
+  modal.style.display = "none";
+});
+
+// Cerrar el modal al hacer clic fuera de él
+window.addEventListener("click", (event) => {
+  if (event.target === modal) {
+    modal.style.display = "none";
   }
 });
