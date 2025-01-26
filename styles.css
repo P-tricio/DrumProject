@@ -1,19 +1,75 @@
 /* Estilos generales */
+
 body {
   margin: 0;
   height: 100vh; /* Asegura que el body ocupe toda la altura del viewport */
   background-color: #000;
 }
+
 h1 {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  color: white;
+  background-color: #3e3e4c;
+  text-align: center;
+  font-size: 4em;
+  margin-top: 0;
+  padding-top: auto;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.601);
+}
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #3e3e4c;
   color: white;
   text-align: center;
-  font-size: 2em;
-  margin-top: 0;
-  padding-top: 1em;
+  padding: 0;
+  font-size: 1.2em;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.601);
 }
-/* Div donde va la imagen */
+ul {
+  font-size: 0.7em;
+  list-style-type: none;
+  margin: auto;
+  padding: auto;
+  overflow: hidden;
+}
+
+p.instructions {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  color: white;
+  background-color: #3e3e4c;
+  text-align: center;
+  font-size: 1.2em;
+  margin-top: auto;
+  padding-top: auto;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.601);
+}
+
+#instructions {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  background-color: #3e3e4c;
+  color: white;
+  text-align: center;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: 1em;
+  margin-top: 0;
+  padding-top: auto;
+  padding-bottom: 1.5em;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.601);
+  border-radius: 8px;
+  width: 50%;
+  /* colocarlo en el centro del viewport*/
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 68%;
+}
+
 #drum-kit {
-  margin: 0 auto;
+  margin: auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -24,8 +80,7 @@ h1 {
   background-size: contain; /* La imagen se ajusta para cubrir todo el div */
   background-repeat: no-repeat; /* Asegura que la imagen no se repita */
   background-position: center; /* Centra la imagen */
-  border-radius: 8px;
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+  border-radius: 0px;
 }
 
 /* Botones invisibles superpuestos */
@@ -40,6 +95,40 @@ h1 {
   cursor: pointer;
   transition: transform 0.1s ease, background-color 0.1s ease,
     box-shadow 0.2s ease;
+}
+
+/* Efecto al pasar el ratón */
+.button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+}
+
+/* Estado activo (clic o tecla presionada) */
+.button.active {
+  background-color: #2c2c4509; /* Color más oscuro */
+  transform: scale(0.95); /* Reducción de tamaño */
+  box-shadow: none; /* Quitar la sombra */
+}
+/* Efecto al pulsar */
+.button.active::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  animation: pulse 0.3s ease-out;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
 }
 
 /* Posiciones específicas de cada botón (ajustadas a las zonas de la batería) */
@@ -83,10 +172,10 @@ h1 {
   height: 10%;
 } /* Caja */
 #z {
-  top: 28%;
-  left: 35%;
-  width: 15%;
-  height: 18%;
+  top: 32%;
+  left: 36%;
+  width: 13%;
+  height: 12%;
 } /* Tom alto */
 #x {
   top: 49%;
@@ -101,40 +190,171 @@ h1 {
   height: 50%;
 } /* Tom bajo */
 
-/* Efecto al pasar el ratón */
-.button:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+/* Botones para grabar */
+#record-controls {
+  position: fixed;
+  top: 13%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
 }
 
-/* Estado activo (clic o tecla presionada) */
-.button.active {
-  background-color: #2c2c45; /* Color más oscuro */
-  transform: scale(0.95); /* Reducción de tamaño */
-  box-shadow: none; /* Quitar la sombra */
+#record-button {
+  background-color: transparent;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1em;
+  cursor: pointer;
 }
-/* Efecto al pulsar */
-.button.active::after {
-  content: "";
-  position: absolute;
+
+#record-button.recording {
+  background-color: darkred;
+}
+
+#play-recording {
+  background-color: transparent;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1em;
+  cursor: pointer;
+}
+#play-recording:disabled {
+  cursor: default;
+}
+
+#play-recording:disabled svg {
+  fill: grey;
+  cursor: default;
+}
+
+/* Cambiar modo */
+
+#cambiarModo {
+  height: 50px;
+  width: 50px;
+  padding: 0;
+  border-radius: 50%;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+}
+#cambiarModo svg {
+  fill: black;
+}
+
+#cambiarModo svg:last-child {
+  display: none;
+}
+
+.darkMode #cambiarModo svg:first-child {
+  display: none;
+}
+.darkMode #cambiarModo svg:last-child {
+  display: block;
+}
+.darkMode {
+  margin: 0;
+  height: 100vh; /* Asegura que el body ocupe toda la altura del viewport */
+  background-color: whitesmoke;
+}
+
+.darkMode h1 {
+  background-color: darkblue;
+  color: white;
+  box-shadow: 0 0 15px rgba(26, 7, 237, 0.859);
+}
+
+.darkMode footer {
+  background-color: darkblue;
+  color: white;
+  box-shadow: 0 0 15px rgba(26, 7, 237, 0.859);
+}
+
+.darkMode #instructions {
+  background-color: darkblue;
+  color: white;
+  box-shadow: 0 0 15px rgba(26, 7, 237, 0.859);
+}
+
+/* Botón de instrucciones */
+#instructions-button {
+  background-color: #3e3e4c;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.2em;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.601);
+}
+
+/* Modal de instrucciones */
+.modal {
+  display: none; /* Oculto por defecto */
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.4);
-  border-radius: 50%;
-  animation: pulse 0.3s ease-out;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
 }
 
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-    opacity: 1;
-  }
-  100% {
-    transform: scale(2);
-    opacity: 0;
-  }
+.modal-content {
+  background-color: rgb(255, 255, 255);
+  color: #3e3e4c;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 25%;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: 1.5em;
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.601);
+}
+.modal-content h2 {
+  margin-top: 0;
+  padding-top: 0;
+  text-align: center;
+  font-size: 1.5em;
+  color: #3e3e4c;
 }
 
-/* Bonus: Podríamos añadir un mensaje con el sonido que se ha pulsado en pantalla */
+.close-button {
+  float: right;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #ffcccc;
+}
 
-/* Bonus: Estilos para dispositivos móviles */
+.close-button:hover {
+  color: rgb(238, 84, 84);
+}
+
+#open-instructions {
+  background-color: white;
+  color: #3e3e4c;
+  padding: 12px 24px; /* Espaciado interno para hacerlo cómodo */
+  border: none; /* Sin bordes */
+  border-radius: 8px; /* Bordes redondeados */
+  font-size: 1em; /* Tamaño de fuente más grande */
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif; /* Fuente llamativa */
+  cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.601); /* Sombra luminosa */
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
